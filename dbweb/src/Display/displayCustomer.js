@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import AddCustomerForm from '../Insert/AddCustomerForm';
-import SampleForm from '../Insert/sampleForm';
+import '@fortawesome/fontawesome-free/css/all.css';
+// import SampleForm from '../Insert/sampleForm';
 import 'tachyons';
 const Customer = () => {
   const [customers, setCustomers] = useState([]);
-  //hello
-  //Display
+  const [showForm, setShowForm] = useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,9 +21,18 @@ const Customer = () => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   console.log(customers);
-  // }, [customers]);
+  const handleDelete = (userId) => {
+    fetch(`http://localhost:3000/customers/${userId}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      const updatedCustomers = customers.filter(c => c.user_id !== userId);
+      setCustomers(updatedCustomers);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
 
   return (
     <div class="pa4">
@@ -37,6 +47,7 @@ const Customer = () => {
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Email</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Address</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Phone Number</th>
+              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white"></th>
             </tr>
           </thead>
           <tbody class="lh-copy">
@@ -49,14 +60,22 @@ const Customer = () => {
                 <td class="tl pv3 pr3 bb b--black-20">{customer.email}</td>
                 <td class="tl pv3 pr3 bb b--black-20">{customer.address}</td>
                 <td class="tl pv3 pr3 bb b--black-20">{customer.phoneno}</td>
+                <td class="tl pv3 pr3 bb b--black-20">
+                  <button onClick={() => handleDelete(customer.user_id)}>
+                    <i className="fas fa-times"></i>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
         </div>
-        <h3>Insert Table: </h3>
-        <AddCustomerForm />
-        <SampleForm/>
+        <br/>
+        <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                onClick={() => setShowForm(!showForm)}>
+                  {showForm ? 'Hide Form' : 'Add Customer'}
+        </button>
+        {showForm && <AddCustomerForm />}
     </div> 
   );
 };

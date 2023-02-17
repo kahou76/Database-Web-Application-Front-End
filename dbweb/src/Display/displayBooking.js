@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import '@fortawesome/fontawesome-free/css/all.css';
+import AddBooking from '../Insert/AddBooking';
 import 'tachyons';
 
-const Hotel = () => {
+const Booking = () => {
   const [books, setBooks] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,9 +21,18 @@ const Hotel = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(books);
-  }, [books]);
+  const handleDelete = (Id) => {
+    fetch(`http://localhost:3000/books/${Id}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      const updated = books.filter(b => b.reservation_id !== Id);
+      setBooks(updated);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
 
   return (
     <div class="pa4">
@@ -40,6 +52,7 @@ const Hotel = () => {
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Seat No</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Departure Date</th>
               <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Car Plate No</th>
+              <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white"></th>
             </tr>
           </thead>
           <tbody class="lh-copy">
@@ -57,14 +70,25 @@ const Hotel = () => {
                 <td class="tl pv3 pr3 bb b--black-20">{book.seat_no}</td>
                 <td class="tl pv3 pr3 bb b--black-20">{book.departure_date ? new Date(book.departure_date).toLocaleDateString('en-CA') : ''}</td>
                 <td class="tl pv3 pr3 bb b--black-20">{book.car_plate_no}</td>
+                <td class="tl pv3 pr3 bb b--black-20">
+                  <button onClick={() => handleDelete(book.reservation_id)}>
+                    <i className="fas fa-times"></i>
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
         </div>
+        <br/>
+        <button className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                onClick={() => setShowForm(!showForm)}>
+                  {showForm ? 'Hide Form' : 'Add Booking'}
+        </button>
+        {showForm && <AddBooking />}
     </div>
     
-  );
+  );  
 };
 
-export default Hotel;
+export default Booking;

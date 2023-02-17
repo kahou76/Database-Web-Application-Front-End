@@ -33,7 +33,7 @@ function App() {
     <div className="App">
       <div className="left-navbar">
         <div className="header">
-          <h4>Menu</h4>
+          <h4>Database Tables</h4>
         </div>
         <div className="menu">
           <button className="menu-item" onClick={() => setSelectedTable('customer')} >Customer</button>
