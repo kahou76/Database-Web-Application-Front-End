@@ -3,6 +3,7 @@ import AddCustomerForm from '../Insert/AddCustomerForm';
 import '@fortawesome/fontawesome-free/css/all.css';
 // import SampleForm from '../Insert/sampleForm';
 import 'tachyons';
+
 const Customer = () => {
   const [customers, setCustomers] = useState([]);
   const [showForm, setShowForm] = useState(false);
