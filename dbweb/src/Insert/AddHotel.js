@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './required.css';
 import 'tachyons';
 
 const AddHotel = () => {
@@ -39,7 +40,7 @@ const AddHotel = () => {
     
     <div className=" ba">
       <form onSubmit={handleSubmit} class="pa4">
-      <label className ="db fw6 lh-copy f6">Hotel NO:</label>
+      <label className ="db fw6 lh-copy f6 required">Hotel NO (5 digits):</label>
       <input
           type="text"
           name="hotel_no"
@@ -47,7 +48,7 @@ const AddHotel = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Hotel Name:</label>
+      <label className ="db fw6 lh-copy f6 required">Hotel Name:</label>
       <input
           type="text"
           name="hotel_name"

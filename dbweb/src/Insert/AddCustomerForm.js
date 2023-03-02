@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './required.css';
 import 'tachyons';
 
 const AddCustomerForm = () => {
@@ -43,7 +44,7 @@ const AddCustomerForm = () => {
     
     <div className=" ba">
       <form onSubmit={handleSubmit} class="pa4">
-      <label className ="db fw6 lh-copy f6">User ID:</label>
+      <label className ="db fw6 lh-copy f6 required">User ID (9 digits):</label>
       <input
           type="text"
           name="user_id"
@@ -51,7 +52,7 @@ const AddCustomerForm = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">First Name:</label>
+      <label className ="db fw6 lh-copy f6 required">First Name:</label>
       <input
           type="text"
           name="fname"
@@ -67,7 +68,7 @@ const AddCustomerForm = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Last Name:</label>
+      <label className ="db fw6 lh-copy f6 required">Last Name:</label>
       <input
           type="text"
           name="lname"
@@ -91,7 +92,7 @@ const AddCustomerForm = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Phone Number:</label>
+      <label className ="db fw6 lh-copy f6 required">Phone Number (11 digits):</label>
       <input
           type="tel"
           name="phoneno"

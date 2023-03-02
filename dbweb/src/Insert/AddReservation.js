@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './required.css';
 import 'tachyons';
 
 const AddReservation = () => {
@@ -39,7 +40,7 @@ const AddReservation = () => {
     
     <div className=" ba">
       <form onSubmit={handleSubmit} class="pa4">
-      <label className ="db fw6 lh-copy f6">Reservation ID:</label>
+      <label className ="db fw6 lh-copy f6 required">Reservation ID (9 digits):</label>
       <input
           type="text"
           name="reservation_id"
@@ -55,7 +56,7 @@ const AddReservation = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">User ID:</label>
+      <label className ="db fw6 lh-copy f6 required">User ID (9 digits):</label>
       <input
           type="text"
           name="user_id"

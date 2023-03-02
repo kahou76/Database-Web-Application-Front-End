@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './required.css';
 import 'tachyons';
 
 const AddCar = () => {
@@ -49,7 +50,7 @@ const AddCar = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Car Year:</label>
+      <label className ="db fw6 lh-copy f6">Car Year (4 digits):</label>
       <input
           type="text"
           name="car_year"
@@ -57,7 +58,7 @@ const AddCar = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Car Plate No:</label>
+      <label className ="db fw6 lh-copy f6 required">Car Plate No:</label>
       <input
           type="text"
           name="car_plate_no"

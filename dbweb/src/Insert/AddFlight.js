@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './required.css';
 import 'tachyons';
 
 const AddFlight = () => {
@@ -42,15 +43,15 @@ const AddFlight = () => {
     
     <div className=" ba">
       <form onSubmit={handleSubmit} class="pa4">
-      <label className ="db fw6 lh-copy f6">Flight No:</label>
+      <label className ="db fw6 lh-copy f6 required">Flight No (4 digits):</label>
       <input
           type="text"
           name="flight_no"
           value={formData.flight_no}
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
-      />
-      <label className ="db fw6 lh-copy f6">Departure Airport</label>
+      /> 
+      <label className ="db fw6 lh-copy f6 required">Departure Airport</label>
       <input
           type="text"
           name="dep_airport"
@@ -58,7 +59,7 @@ const AddFlight = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Arrival Airport:</label>
+      <label className ="db fw6 lh-copy f6 required">Arrival Airport:</label>
       <input
           type="text"
           name="arr_airport"
@@ -66,7 +67,7 @@ const AddFlight = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Seat NO:</label>
+      <label className ="db fw6 lh-copy f6 required">Seat NO (3 digits 1 character):</label>
       <input
           type="text"
           name="seat_no"
@@ -74,7 +75,7 @@ const AddFlight = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Flight Price:</label>
+      <label className ="db fw6 lh-copy f6 required">Flight Price:</label>
       <input
           type="text"
           name="flight_price"
@@ -82,7 +83,7 @@ const AddFlight = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Departure Date:</label>
+      <label className ="db fw6 lh-copy f6 required">Departure Date:</label>
       <input
           type="date"
           name="departure_date"

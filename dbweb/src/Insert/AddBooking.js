@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './required.css'
 import 'tachyons';
 
 const AddBooking = () => {
@@ -48,7 +49,7 @@ const AddBooking = () => {
     
     <div className=" ba">
       <form onSubmit={handleSubmit} class="pa4">
-      <label className ="db fw6 lh-copy f6">Date From:</label>
+      <label className ="db fw6 lh-copy f6 required">Date From:</label>
       <input
           type="date"
           name="date_from"
@@ -56,7 +57,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Date To:</label>
+      <label className ="db fw6 lh-copy f6 required">Date To:</label>
       <input
           type="date"
           name="date_to"
@@ -64,7 +65,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Time From:</label>
+      <label className ="db fw6 lh-copy f6 required">Time From:</label>
       <input
           type="time"
           name="time_from"
@@ -72,7 +73,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Time To:</label>
+      <label className ="db fw6 lh-copy f6 required">Time To:</label>
       <input
           type="time"
           name="time_to"
@@ -80,7 +81,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Reservation ID:</label>
+      <label className ="db fw6 lh-copy f6 required">Reservation ID (9 digits):</label>
       <input
           type="text"
           name="reservation_id"
@@ -88,7 +89,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">User ID:</label>
+      <label className ="db fw6 lh-copy f6 required">User ID (9 digits):</label>
       <input
           type="text"
           name="user_id"
@@ -96,7 +97,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Hotel NO:</label>
+      <label className ="db fw6 lh-copy f6">Hotel NO (5 digits):</label>
       <input
           type="text"
           name="hotel_no"
@@ -104,7 +105,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Room NO:</label>
+      <label className ="db fw6 lh-copy f6">Room NO (3 digits):</label>
       <input
           type="text"
           name="room_no"
@@ -112,7 +113,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Flight NO:</label>
+      <label className ="db fw6 lh-copy f6">Flight NO (4 digits):</label>
       <input
           type="text"
           name="flight_no"
@@ -120,7 +121,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Seat NO:</label>
+      <label className ="db fw6 lh-copy f6">Seat NO (4 digits):</label>
       <input
           type="text"
           name="seat_no"
@@ -136,7 +137,7 @@ const AddBooking = () => {
           onChange={handleChange}
           class="pa2 input-reset ba bg-transparent w-100 measure"
       />
-      <label className ="db fw6 lh-copy f6">Car Plate NO:</label>
+      <label className ="db fw6 lh-copy f6">Car Plate NO (7 digits):</label>
       <input
           type="text"
           name="car_plate_no"
