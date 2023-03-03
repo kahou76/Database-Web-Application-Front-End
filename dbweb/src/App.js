@@ -34,7 +34,7 @@ function App() {
           <button className="menu-item" onClick={() => setSelectedTable('payment')} >Payment</button>
         </div>
       </div>
-      {/* testing */}
+      
       <div className="content">
         {selectedTable === 'customer' && <DisplayCustomer />}
         {selectedTable === 'hotel' && <DisplayHotel />}
